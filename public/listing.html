@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing - Rentify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col">
+    <nav id="main-nav" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50"></nav>
+    
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full" id="listing-detail-container">
+        <!-- Dynamically populated by JS -->
+        <div class="text-center py-20 text-gray-500">Loading listing...</div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-100 py-8 text-center text-gray-500 text-sm mt-auto">
+        <p>&copy; 2026 Rentify. All rights reserved.</p>
+    </footer>
+
+    <script type="module">
+        import { attachNav } from './js/api.js';
+        import { loadListingDetail } from './js/listing-detail.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            attachNav();
+            loadListingDetail();
+        });
+    </script>
+</body>
+</html>

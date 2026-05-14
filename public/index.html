@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentify - Peer-to-Peer Rental Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col">
+    <nav id="main-nav" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50"></nav>
+    
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        <div class="mb-12 text-center max-w-3xl mx-auto">
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Rent Anything, Anywhere</h1>
+            <p class="text-xl text-gray-500 mb-8">Discover a wide variety of items from people around you. Electronics, tools, vehicles, and more.</p>
+            <div class="flex items-center justify-center gap-4">
+                <select id="category-filter" class="w-64 px-4 py-3 bg-white border border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-gray-700 font-medium appearance-none cursor-pointer">
+                    <option value="All">All Categories</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Tools">Tools</option>
+                    <option value="Vehicles">Vehicles</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Books">Books</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="listings-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Dynamically populated by JS -->
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-100 py-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Rentify. All rights reserved.</p>
+    </footer>
+
+    <script type="module">
+        import { attachNav } from './js/api.js';
+        import { loadListings } from './js/listings.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            attachNav();
+            loadListings();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Rentify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col">
+    <nav id="main-nav" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50"></nav>
+    
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full" id="dashboard-container">
+        <div class="mb-8">
+            <h1 class="text-4xl font-extrabold text-gray-900">Welcome, <span id="welcome-name" class="text-indigo-600">User</span>!</h1>
+            <p class="text-gray-500 mt-2">Manage your listings and rentals from one place.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            
+            <!-- My Rentals Section -->
+            <div class="lg:col-span-1 space-y-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">My Rentals</h2>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Current</h3>
+                            <div id="bookings-current" class="min-h-[4rem] text-sm text-gray-500">Loading...</div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Scheduled</h3>
+                            <div id="bookings-scheduled" class="min-h-[4rem] text-sm text-gray-500">Loading...</div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Past</h3>
+                            <div id="bookings-past" class="min-h-[4rem] text-sm text-gray-500">Loading...</div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Cancelled</h3>
+                            <div id="bookings-cancelled" class="min-h-[4rem] text-sm text-gray-500">Loading...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- My Listings Section -->
+            <div class="lg:col-span-2">
+                <div class="flex items-center justify-between mb-4 border-b pb-2">
+                    <h2 class="text-2xl font-bold text-gray-900">My Listings</h2>
+                    <a href="/new-listing.html" class="text-indigo-600 hover:text-indigo-800 font-medium text-sm flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        Create New
+                    </a>
+                </div>
+                
+                <div id="my-listings" class="min-h-[10rem] text-gray-500">Loading...</div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-100 py-8 text-center text-gray-500 text-sm mt-auto">
+        <p>&copy; 2026 Rentify. All rights reserved.</p>
+    </footer>
+
+    <script type="module">
+        import { attachNav } from './js/api.js';
+        import { loadDashboard } from './js/dashboard.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            attachNav();
+            loadDashboard();
+        });
+    </script>
+</body>
+</html>
